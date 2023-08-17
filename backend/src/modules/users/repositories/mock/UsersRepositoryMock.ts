@@ -17,7 +17,17 @@ class UsersRepositoryMock implements IUsersRepository {
   }
 
   async list(query: string): Promise<User[]> {
-    return this.users;
+    const filteredUsers = this.users.filter((user) => {
+      const lowercaseQuery = query.toLowerCase();
+      return (
+        user.name.toLowerCase().includes(lowercaseQuery) ||
+        user.city.toLowerCase().includes(lowercaseQuery) ||
+        user.country.toLowerCase().includes(lowercaseQuery) ||
+        user.favorite_sport.toLowerCase().includes(lowercaseQuery)
+      );
+    });
+
+    return filteredUsers;
   }
 }
 

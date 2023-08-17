@@ -25,7 +25,16 @@ class UsersRepository implements IUsersRepository {
   }
 
   async list(query: string): Promise<User[]> {
-    const users = await this.prisma.user.findMany();
+    const users = await this.prisma.user.findMany({
+      where: {
+        OR: [
+          { name: { contains: query } },
+          { city: { contains: query } },
+          { country: { contains: query } },
+          { favorite_sport: { contains: query } },
+        ],
+      },
+    });
 
     return users;
   }
