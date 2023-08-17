@@ -1,8 +1,7 @@
-import { inject, injectable } from "tsyringe";
+import { inject, injectable } from 'tsyringe';
 
-import { User } from "../../models/User";
-import { IUsersRepository } from "../../repositories/IUsersRepositories";
-import { AppError } from "../../../../shared/errors/AppError";
+import { User } from '../../models/User';
+import { IUsersRepository } from '../../repositories/IUsersRepositories';
 
 @injectable()
 class ListUsersUseCase {
@@ -12,10 +11,6 @@ class ListUsersUseCase {
   ) {}
 
   async execute(query: string): Promise<User[]> {
-    if (typeof query !== 'string') {
-      throw new AppError('Invalid query parameter.');
-    }
-
     const users = await this.usersRepository.list(query);
 
     return users;

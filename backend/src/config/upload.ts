@@ -1,6 +1,6 @@
 import crypto from 'crypto';
-import multer from 'multer';
 import path from 'path';
+import multer from 'multer';
 
 export default {
   upload(folder: string) {

@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 
-import { UserDTO, User } from "../../models/User";
-import { IUsersRepository } from "../IUsersRepositories";
+import { UserDTO, User } from '../../models/User';
+import { IUsersRepository } from '../IUsersRepositories';
 
 class UsersRepository implements IUsersRepository {
   private prisma = new PrismaClient();
@@ -18,7 +18,7 @@ class UsersRepository implements IUsersRepository {
         city,
         country,
         favorite_sport,
-      }
+      },
     });
 
     return user;

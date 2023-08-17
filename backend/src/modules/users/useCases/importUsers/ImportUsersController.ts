@@ -1,7 +1,7 @@
-import { Request, Response } from "express";
-import { container } from "tsyringe";
+import { Request, Response } from 'express';
+import { container } from 'tsyringe';
 
-import { ImportUsersUseCase } from "./ImportUsersUseCase";
+import { ImportUsersUseCase } from './ImportUsersUseCase';
 
 class ImportUsersController {
   async handle(req: Request, res: Response): Promise<Response> {
@@ -11,7 +11,9 @@ class ImportUsersController {
 
     await importUsersUseCase.execute(csvFilePath);
 
-    return res.json({ message: 'CSV file uploaded and processed successfully.' });
+    return res.json({
+      message: 'CSV file uploaded and processed successfully.',
+    });
   }
 }
 

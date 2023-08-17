@@ -1,11 +1,9 @@
+import fs from 'fs';
 import { inject, injectable } from 'tsyringe';
 import csvParser from 'csv-parser';
-import fs from 'fs';
 
-import { UserDTO } from "../../models/User";
-import { AppError } from "../../../../shared/errors/AppError";
+import { UserDTO } from '../../models/User';
 import { IUsersRepository } from '../../repositories/IUsersRepositories';
-import { deleteFile } from '../../../../utils/file';
 
 @injectable()
 class ImportUsersUseCase {
@@ -14,26 +12,20 @@ class ImportUsersUseCase {
     private usersRepository: IUsersRepository
   ) {}
 
-  async execute( csvFilePath: string): Promise<void> {
-    try {
-      fs.createReadStream(csvFilePath)
+  async execute(csvFilePath: string): Promise<void> {
+    fs.createReadStream(csvFilePath)
       .pipe(csvParser())
-        .on('data', async (data: UserDTO) => {
-          await this.usersRepository.create({
-            name: data.name,
-            city: data.city,
-            country: data.country,
-            favorite_sport: data.favorite_sport,
-          });
-        })
-        .on('end', async () => {
-          await deleteFile(csvFilePath);
-
-          return; 
+      .on('data', async (data: UserDTO) => {
+        await this.usersRepository.create({
+          name: data.name,
+          city: data.city,
+          country: data.country,
+          favorite_sport: data.favorite_sport,
         });
-    } catch (error) {
-      throw new AppError('An error occurred while processing the CSV file.', 500)
-    }
+      })
+      .on('end', async () => {
+        await fs.promises.unlink(csvFilePath);
+      });
   }
 }
 

@@ -1,6 +1,6 @@
-import { UserDTO, User } from "../../models/User";
-import { IUsersRepository } from "../IUsersRepositories";
 import { v4 as uuidV4 } from 'uuid';
+import { UserDTO, User } from '../../models/User';
+import { IUsersRepository } from '../IUsersRepositories';
 
 class UsersRepositoryMock implements IUsersRepository {
   private users: User[] = [];
@@ -9,7 +9,7 @@ class UsersRepositoryMock implements IUsersRepository {
     const user = {
       ...data,
       id: uuidV4(),
-    }
+    };
 
     this.users.push(user);
 

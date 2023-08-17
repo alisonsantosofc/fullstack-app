@@ -1,4 +1,4 @@
-import { User, UserDTO } from "../models/User";
+import { User, UserDTO } from '../models/User';
 
 interface IUsersRepository {
   create(data: UserDTO): Promise<User>;
