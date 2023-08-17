@@ -5,6 +5,7 @@ import fs from 'fs';
 import { UserDTO } from "../../models/User";
 import { AppError } from "../../../../shared/errors/AppError";
 import { IUsersRepository } from '../../repositories/IUsersRepositories';
+import { deleteFile } from '../../../../utils/file';
 
 @injectable()
 class ImportUsersUseCase {
@@ -26,6 +27,8 @@ class ImportUsersUseCase {
           });
         })
         .on('end', async () => {
+          await deleteFile(csvFilePath);
+
           return; 
         });
     } catch (error) {

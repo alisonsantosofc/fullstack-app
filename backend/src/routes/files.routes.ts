@@ -12,7 +12,7 @@ const importUsersController = new ImportUsersController();
 
 filesRoutes.post(
   '/',
-  uploadCSVFile.single('csvFile'),
+  uploadCSVFile.single('file'),
   importUsersController.handle
 );
 
