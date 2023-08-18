@@ -1,6 +1,9 @@
-import { useState } from 'react';
+import { InputHTMLAttributes, useState } from 'react';
 
-export function Input() {
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+}
+
+export function Input({ ...props }: InputProps) {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
@@ -10,10 +13,9 @@ export function Input() {
         ? 'border border-green-500' // Aplicar borda com gradiente quando focado
         : 'border-transparent'
     } outline-none placeholder-zinc-500`}
-      type="text"
-      placeholder="search"
       onFocus={() => setIsFocused(true)}
       onBlur={() => setIsFocused(false)}
+      {...props}
     />
   );
 }

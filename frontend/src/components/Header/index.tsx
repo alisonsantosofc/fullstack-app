@@ -1,7 +1,7 @@
-import { Input } from '../Input/index.tsx';
+import { UploadCsvButton } from '../UploadCsvButton/index.tsx';
 
 import logo from '../../assets/images/logo.svg';
-import { UploadCsvButton } from '../UploadCsvButton/index.tsx';
+import { SearchBar } from '../SearchBar/index.tsx';
 
 export function Header() {
   return (
@@ -12,7 +12,7 @@ export function Header() {
 
           <div className="w-[1px] h-full bg-zinc-600"></div>
 
-          <Input />
+          <SearchBar />
         </div>
 
         <UploadCsvButton />
