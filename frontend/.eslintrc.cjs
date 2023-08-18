@@ -13,6 +13,7 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
-    'no-shadow': 'off'
+    'no-shadow': 'off',
+    'import/prefer-default-export': 'off'
   },
 }
