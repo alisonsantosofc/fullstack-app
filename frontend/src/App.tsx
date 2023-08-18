@@ -4,12 +4,15 @@ import 'react-toastify/dist/ReactToastify.css';
 import { X } from '@phosphor-icons/react';
 import { Header } from './components/Header/index.tsx';
 import { UsersList } from './components/UsersList/index.tsx';
+import { useUsers } from './hooks/useUsers.tsx';
 
 function App() {
+  const { users } = useUsers();
+
   return (
     <div id="app" className="h-screen overflow-y-scroll overflow-x-hidden bg-zinc-900">
       <Header />
-      <UsersList />
+      <UsersList users={users} />
 
       <ToastContainer
         autoClose={4000}

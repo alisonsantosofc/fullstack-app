@@ -15,6 +15,8 @@ module.exports = {
     ],
     'no-shadow': 'off',
     'import/prefer-default-export': 'off',
-    '@typescript-eslint/no-unused-vars': 'off'
+    '@typescript-eslint/no-unused-vars': 'off',
+    'import/no-unresolved': 'off',
+    'import/no-extraneous-dependencies': 'off'
   },
 }
