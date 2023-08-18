@@ -6,7 +6,7 @@ import { api } from '../../services/api.ts';
 import { Toast } from '../Toast/index.tsx';
 
 export function SearchBar() {
-  const { users, setUsers } = useUsers();
+  const { setUsers } = useUsers();
 
   const [query, setQuery] = useState('');
 

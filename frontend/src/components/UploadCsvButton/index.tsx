@@ -4,8 +4,11 @@ import { toast } from 'react-toastify';
 
 import { Toast } from '../Toast/index.tsx';
 import { api } from '../../services/api.ts';
+import { useUsers } from '../../hooks/useUsers.tsx';
 
 export function UploadCsvButton() {
+  const { setUsers } = useUsers();
+
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   function handleButtonClick() {
@@ -13,6 +16,22 @@ export function UploadCsvButton() {
       fileInputRef.current.click();
     }
   }
+
+  const fetchUsers = async () => {
+    try {
+      const response = await api.get('/users?q= ');
+
+      setUsers(response.data);
+    } catch (error) {
+      toast.error(
+        <Toast
+          type="error"
+          title="Error fetching"
+          message={`Error during users fetch: ${error}`}
+        />,
+      );
+    }
+  };
 
   async function handleFileChange(event: ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];
@@ -31,6 +50,8 @@ export function UploadCsvButton() {
             message="Users successfully saved on the database."
           />,
         );
+
+        fetchUsers();
 
         if (fileInputRef.current) {
           fileInputRef.current.value = '';
