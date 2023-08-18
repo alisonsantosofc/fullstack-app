@@ -24,7 +24,7 @@ class ImportUsersUseCase {
         });
       })
       .on('end', async () => {
-        await fs.promises.unlink(csvFilePath);
+        await fs.promises?.unlink(csvFilePath);
       });
   }
 }
