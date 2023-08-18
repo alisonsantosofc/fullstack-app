@@ -7,21 +7,21 @@ export function UsersList() {
       <section className="w-[998px] h-full text-zinc-300">
         <h2 className="pt-4 pb-8 text-[24px] font-medium">Users list</h2>
 
-        <ul className="grid grid-cols-3 gap-8">
+        <ul className="grid grid-cols-2 gap-8 pb-8">
           {users.map((user) => (
-            <li className="rounded bg-zinc-750 shadow-lg py-4 px-8">
-              <strong className="block text-[18px] font-medium pb-2">
-                {user.name}
-              </strong>
+            <li className="flex justify-between items-center rounded bg-zinc-750 shadow-lg py-4 px-8">
+              <div>
+                <p className="block text-[20px] pb-2">
+                  {user.name}
+                </p>
 
-              <div className="flex w-full gap-2 pb-6">
-                <span className="block bg-zinc-600 px-4 py-1 text-sm">{user.city}</span>
-                <span className="block bg-zinc-700 px-4 py-1 text-sm">{user.country}</span>
+                <div className="flex w-full gap-2 pb-6">
+                  <span className="block bg-zinc-600 px-4 py-1 text-sm">{user.city}</span>
+                  <span className="block bg-zinc-700 px-4 py-1 text-sm">{user.country}</span>
+                </div>
               </div>
 
-              <p className="w-full flex justify-end text-2xl">
-                {user.favorite_sport}
-              </p>
+              <span className="text-2xl text-zinc-500 font-medium">{user.favorite_sport}</span>
             </li>
           ))}
         </ul>

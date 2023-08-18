@@ -9,6 +9,7 @@ class UsersRepositoryMock implements IUsersRepository {
     const user = {
       ...data,
       id: uuidV4(),
+      created_at: new Date(),
     };
 
     this.users.push(user);
