@@ -16,7 +16,6 @@ export function SearchBar() {
         const response = await api.get(`/users?q=${query}`);
 
         setUsers(response.data);
-        console.log(users);
       } catch (error) {
         toast.error(
           <Toast

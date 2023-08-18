@@ -5,12 +5,12 @@ import { SearchBar } from '../SearchBar/index.tsx';
 
 export function Header() {
   return (
-    <header className="fixed w-screen h-20 flex justify-center bg-zinc-800 shadow-md">
-      <nav className="w-[996px] py-4 flex justify-between">
-        <div className='flex gap-4'>
-          <img src={logo} width={120}/>
+    <header className="fixed w-screen h-20 flex justify-center bg-zinc-800 shadow-md px-4 lg:px-0">
+      <nav className="w-[996px] py-4 flex justify-between gap-4">
+        <div className='flex items-center gap-4'>
+          <img src={logo} width={120} className="hidden lg:block"/>
 
-          <div className="w-[1px] h-full bg-zinc-600"></div>
+          <div className="w-[1px] h-full bg-zinc-600 hidden lg:block"></div>
 
           <SearchBar />
         </div>

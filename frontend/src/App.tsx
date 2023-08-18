@@ -13,7 +13,7 @@ function App() {
 
       <ToastContainer
         autoClose={4000}
-        className="min-w-[476px] pr-4 pt-4"
+        className="min-w-[476px] pt-0 lg:pr-4 pt-4"
         toastClassName="w-full p-4 font-medium text-white bg-zinc-700 w-full"
         icon={false}
         closeButton={({ closeToast }) => (
