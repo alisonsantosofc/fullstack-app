@@ -5,8 +5,8 @@ import { UploadCsvButton } from '../UploadCsvButton/index.tsx';
 
 export function Header() {
   return (
-    <header className="w-screen flex justify-center bg-zinc-800 shadow-md">
-      <nav className="w-[996px] p-4 flex justify-between">
+    <header className="fixed w-screen h-20 flex justify-center bg-zinc-800 shadow-md">
+      <nav className="w-[996px] py-4 flex justify-between">
         <div className='flex gap-4'>
           <img src={logo} width={120}/>
 

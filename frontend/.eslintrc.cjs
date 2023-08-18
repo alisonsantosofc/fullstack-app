@@ -14,6 +14,7 @@ module.exports = {
       { allowConstantExport: true },
     ],
     'no-shadow': 'off',
-    'import/prefer-default-export': 'off'
+    'import/prefer-default-export': 'off',
+    '@typescript-eslint/no-unused-vars': 'off'
   },
 }
