@@ -5,27 +5,26 @@ import {
 interface ToastProps {
   title: string;
   message: string;
-  type: 'info' | 'success' | 'warning' | 'error';
+  type: 'info' | 'success' | 'warning' | 'error' | 'default';
 }
 
 export function Toast({ title, message, type }: ToastProps) {
   function setIcon() {
     switch (type) {
       case 'info':
-        return <Info fontSize={64} className="text-blue-500" />;
-        break;
+        return <Info data-testid="toast-icon" fontSize={64} className="text-blue-500" />;
+
       case 'success':
-        return <CheckCircle fontSize={64} className="text-green-500" />;
-        break;
+        return <CheckCircle data-testid="toast-icon" fontSize={64} className="text-green-500" />;
+
       case 'warning':
-        return <WarningDiamond fontSize={64} className="text-yellow-500" />;
-        break;
+        return <WarningDiamond data-testid="toast-icon" fontSize={64} className="text-yellow-500" />;
+
       case 'error':
-        return <Bug fontSize={64} className="text-red-500" />;
-        break;
+        return <Bug data-testid="toast-icon" fontSize={64} className="text-red-500" />;
+
       default:
-        return <WarningCircle fontSize={64} className="text-blue-500" />;
-        break;
+        return <WarningCircle data-testid="toast-icon" fontSize={64} className="text-blue-500" />;
     }
   }
 

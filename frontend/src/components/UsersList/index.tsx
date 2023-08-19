@@ -12,7 +12,7 @@ export function UsersList({ users }: UsersListProps) {
 
         <ul className="grid grid-cols-1 gap-8 pb-8 lg:grid-cols-2">
           {users?.map((user) => (
-            <li className="flex justify-between items-center rounded bg-zinc-750 shadow-lg py-4 px-8">
+            <li key={user.id} className="flex justify-between items-center rounded bg-zinc-750 shadow-lg py-4 px-8">
               <div>
                 <p className="block text-[20px] pb-2">
                   {user.name}

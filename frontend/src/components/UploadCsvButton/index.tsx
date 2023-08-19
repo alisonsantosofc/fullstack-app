@@ -76,6 +76,7 @@ export function UploadCsvButton() {
       <span className="hidden lg:block">Upload csv file</span>
       <FileArrowUp fontSize={24} />
       <input
+        data-testid="file-input"
         ref={fileInputRef}
         type="file"
         accept=".csv"
